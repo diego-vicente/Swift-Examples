@@ -93,7 +93,7 @@ enum Rank: Int {
         }
     }
 
-    func comparedTo(Rank other) -> Rank {
+    func comparedTo(other: Rank) -> Rank {
         if (self.toRaw()<other.toRaw()){
             return other
         }
@@ -109,7 +109,7 @@ enum Rank: Int {
 enum Suit: Int {
     case Spades = 1, Hearts, Diamonds, Clubs
 
-    func simpleDescritption() -> String {
+    func simpleDescription() -> String {
         switch self {
             case .Spades:
                 return "spades"
@@ -122,7 +122,7 @@ enum Suit: Int {
         }
     }
 
-    func color() - String {
+    func color() -> String {
         switch self {
         case .Spades, .Clubs:
             return "black"
@@ -140,11 +140,11 @@ struct Card {
         return "The \(rank.simpleDescription()) of \(suit.simpleDescription())"
     }
 
-    func initializeDeck() -> Card[]{
-        let deck: Card = [:]
+    func initializeDeck() -> [Card]{
+        var deck: [Card]
         for i in 1...4 {
             for j in 1...13 {
-                let card = Card(rank: .fromRaw(j), suit: .fromRaw(i))
+                let card = Card(rank: Rank.fromRaw(j)!, suit: Suite.fromRaw(i)!)
             }
         return deck
     }
