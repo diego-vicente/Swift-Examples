@@ -149,3 +149,32 @@ struct Card {
         return deck
     }
 }
+
+/* Example of protocol */
+protocol ExampleProtocol {
+    var simpleDescription: String { get }
+    mutating func adjust()
+}
+
+enum enumUnderProtocol {
+    case Alpha, Beta, Gamma, Delta
+
+    var simpleDescription: String = "A simple enumeration element"
+
+    mutating func adjust(){
+        simpleDescription += " now 100% adjusted!"
+    }
+}
+
+/* Example of extension */
+protocol absoluteValue {}
+    mutating func computeAbsoluteValue()
+}
+
+extension Double: absoluteValue {
+    mutating func computeAbsoluteValue(){
+        if (self<0){
+            self = -self
+        }
+    }
+}
